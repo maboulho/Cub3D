@@ -1,11 +1,11 @@
-           NO      ./textures/sfanj.xpm                
-           WE                               ./textures/batman.xpm
+           NO      ./textures/stonec.xpm                
+           WE                               ./textures/blue.xpm
            F                                255,0,0
            
-           SO           ./textures/vache2.xpm
+           SO           ./textures/grey.xpm
            
            
-           EA         ./textures/Azzouz.xpm
+           EA         ./textures/pillar.xpm
 
 C 0,255,100
 

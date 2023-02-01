@@ -6,7 +6,7 @@
 /*   By: maboulho <maboulho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 06:40:25 by oouazahr          #+#    #+#             */
-/*   Updated: 2023/02/01 20:26:14 by maboulho         ###   ########.fr       */
+/*   Updated: 2023/02/01 21:58:52 by maboulho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int	main(int ac, char **av)
 		if (!px)
 			return (0);
 		px->map = p;
-		system("leaks cub3D");
 		execution(px);
 	}
 	return (0);

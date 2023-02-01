@@ -1,12 +1,12 @@
-NO ./textures/s.xpm       
-WE ./textures/n.xpm
+NO ./textures/blue.xpm       
+WE ./textures/grey.xpm
 F           255,0,0
 
-SO ./textures/m.xpm
+SO ./textures/pillar.xpm
 
 C 0,255,100
 
-EA ./textures/d.xpm
+EA ./textures/stonec.xpm
 
 111111111111111111111111111
 100000000011000000000000111
