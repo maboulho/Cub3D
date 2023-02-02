@@ -6,7 +6,7 @@
 /*   By: maboulho <maboulho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 21:00:18 by maboulho          #+#    #+#             */
-/*   Updated: 2023/02/02 03:53:19 by maboulho         ###   ########.fr       */
+/*   Updated: 2023/02/02 04:08:12 by maboulho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	check_zero(char **s, t_cube *p)
 	while (s[i])
 	{
 		if ((s[i + 1] && (s[i + 1][0] == '\n'
-			|| check_space_last(s[i + 1]))) || !s[i + 1])
+				|| check_space_last(s[i + 1]))) || !s[i + 1])
 			check_last_line(s[i]);
 		j = -1;
 		while (s[i][++j])

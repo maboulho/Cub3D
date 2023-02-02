@@ -6,7 +6,7 @@
 #    By: maboulho <maboulho@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/15 05:36:02 by atouati           #+#    #+#              #
-#    Updated: 2023/02/02 03:55:32 by maboulho         ###   ########.fr        #
+#    Updated: 2023/02/02 04:09:19 by maboulho         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = cub3D
 
 CC = cc
 
-C_FLAGS = -Wall -Wextra -Werror -fsanitize=address -g
+C_FLAGS = -Wall -Wextra -Werror
 
 MLX_FLAGS = -lmlx -framework OpenGL -framework AppKit
 

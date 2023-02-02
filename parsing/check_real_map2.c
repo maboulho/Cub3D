@@ -57,26 +57,7 @@ void	check_real_map(t_cube *p)
 	p->cube_map1[i] = NULL;
 	j = p->index;
 	i = 0;
-	while (j < p->lenght)
-	{
-		if (p->map[j][0] == '0')
-			error_blank();
-		if (p->map[j][0] == '\n')
-		{
-			p->cube_map1[i][0] = '\n';
-			ind++;
-		}
-		while (p->cube_map1[i][0] != '\n' && p->map[j][ind] != '\n'
-			&& p->map[j][ind] != '\0')
-		{
-			p->cube_map1[i][ind] = p->map[j][ind];
-			ind++;
-		}
-		p->cube_map1[i][ind] = '\0';
-		ind = 0;
-		i++;
-		j++;
-	}
+	check_real_map2(p, i, j, ind);
 	new_map(p);
 	check_map_error(p);
 }
@@ -103,19 +84,7 @@ void	new_map(t_cube *p)
 		i++;
 	}
 	i = 0;
-	while (i < lenght)
-	{
-		j = 0;
-		while (j < big)
-		{
-			if (j < ft_strlen(p->cube_map1[i]))
-				p->cube_map[i][j] = p->cube_map1[i][j];
-			else
-				p->cube_map[i][j] = ' ';
-			j++;
-		}
-		i++;
-	}
+	new_map2(p, lenght, i, j);
 	if (p->cube_map[0][big - 1] == ' ')
 		p->cube_map[0][big - 1] = '1';
 	if (p->cube_map[lenght - 1][big - 1] == ' ')

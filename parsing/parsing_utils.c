@@ -6,7 +6,7 @@
 /*   By: maboulho <maboulho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 04:27:21 by maboulho          #+#    #+#             */
-/*   Updated: 2023/02/02 03:47:28 by maboulho         ###   ########.fr       */
+/*   Updated: 2023/02/02 04:08:38 by maboulho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,6 @@ int	lenght(int fd, char *s)
 	}
 	free(tmp);
 	return (lines);
-}
-
-int	check_spaces(char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-	{
-		if (s[i] != ' ' && s[i] != '\t' && s[i] != '\n')
-			return (1);
-		i++;
-	}
-	return (0);
 }
 
 int	check_first_line(char *s)
