@@ -6,7 +6,7 @@
 /*   By: maboulho <maboulho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 21:00:18 by maboulho          #+#    #+#             */
-/*   Updated: 2023/02/01 02:42:36 by maboulho         ###   ########.fr       */
+/*   Updated: 2023/02/02 03:53:19 by maboulho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,33 @@ void	check_f_rgb(t_cube *p)
 	}
 	check_comma_plus(p->fc);
 	creat_f_part(p);
+}
+
+void	check_zero(char **s, t_cube *p)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (s[i])
+	{
+		if ((s[i + 1] && (s[i + 1][0] == '\n'
+			|| check_space_last(s[i + 1]))) || !s[i + 1])
+			check_last_line(s[i]);
+		j = -1;
+		while (s[i][++j])
+		{
+			if (s[i][j] == '0')
+				check_zero2(s, i, j);
+			if (s[i][j] == 'N' || s[i][j] == 'E'
+				|| s[i][j] == 'W' || s[i][j] == 'S')
+			{
+				p->direction = s[i][j];
+				p->x = i;
+				p->y = j;
+				check_player(s, i, j);
+			}
+		}
+		i++;
+	}
 }

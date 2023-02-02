@@ -6,7 +6,7 @@
 /*   By: maboulho <maboulho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 00:05:28 by maboulho          #+#    #+#             */
-/*   Updated: 2023/02/01 20:06:50 by maboulho         ###   ########.fr       */
+/*   Updated: 2023/02/02 02:04:39 by maboulho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct s_cube
 	int		n;
 	int		f;
 	int		c;
+	char	**cube_map1;
 	char	**cube_map;
 	int		last_line;
 	int		*texture;
@@ -58,6 +59,10 @@ typedef struct s_cube
 }			t_cube;
 
 void	init_values2(t_cube *p);
+int		get_width(char **s);
+void	new_map(t_cube *p);
+void	check_last_line(char *s);
+void	error_blank(void);
 t_cube	*parse(char **av);
 char	*get_next_line(int fd);
 void	check_map_error(t_cube *p);

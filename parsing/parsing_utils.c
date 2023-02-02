@@ -6,7 +6,7 @@
 /*   By: maboulho <maboulho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 04:27:21 by maboulho          #+#    #+#             */
-/*   Updated: 2023/02/01 02:31:40 by maboulho         ###   ########.fr       */
+/*   Updated: 2023/02/02 03:47:28 by maboulho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,27 @@ void	init_values(t_cube *p)
 	p->j = 0;
 }
 
+void	check_last_line2(char *s)
+{
+	int	i;
+
+	i = 0;
+	if (!s)
+	{
+		printf("error in map\n");
+		exit(0);
+	}
+	while (s[i])
+	{
+		if (s[i] != '1' && s[i] != ' ' && s[i] != '\n')
+		{
+			printf("error in map\n");
+			exit(0);
+		}
+		i++;
+	}
+}
+
 void	check_befor_map(t_cube *p)
 {
 	int	i;
@@ -104,6 +125,7 @@ void	check_befor_map(t_cube *p)
 	}
 	if (p->six == 6)
 	{
+		check_last_line2(p->map[i]);
 		p->index = i;
 		check_map_values(p);
 	}

@@ -40,60 +40,114 @@ void	check_real_map(t_cube *p)
 {
 	int	i;
 	int	j;
+	int	ind;
 
+	ind = 0;
 	i = 0;
 	j = p->index;
-	p->cube_map = malloc(sizeof(char *) * p->lenght + 1);
-	if (!p->cube_map)
+	p->cube_map1 = malloc(sizeof(char *) * p->lenght + 1);
+	if (!p->cube_map1)
 		return ;
-	i = 0;
 	while (j < p->lenght)
 	{
-		p->cube_map[i] = p->map[j];
+		p->cube_map1[i] = malloc(sizeof(char) * (ft_strlen(p->map[j]) + 1));
 		i++;
 		j++;
 	}
-	p->cube_map[i] = NULL;
+	p->cube_map1[i] = NULL;
+	j = p->index;
+	i = 0;
+	while (j < p->lenght)
+	{
+		if (p->map[j][0] == '0')
+			error_blank();
+		if (p->map[j][0] == '\n')
+		{
+			p->cube_map1[i][0] = '\n';
+			ind++;
+		}
+		while (p->cube_map1[i][0] != '\n' && p->map[j][ind] != '\n'
+			&& p->map[j][ind] != '\0')
+		{
+			p->cube_map1[i][ind] = p->map[j][ind];
+			ind++;
+		}
+		p->cube_map1[i][ind] = '\0';
+		ind = 0;
+		i++;
+		j++;
+	}
+	new_map(p);
 	check_map_error(p);
 }
 
-void	check_zero(char **s, t_cube *p)
+void	new_map(t_cube *p)
 {
 	int	i;
 	int	j;
+	int	lenght;
+	int	big;
+
+	lenght = p->lenght - p->index;
+	big = get_width(p->cube_map1);
+	j = 0;
+	i = 0;
+	p->cube_map = malloc(sizeof(char *) * (lenght + 1));
+	if (!p->cube_map)
+		return ;
+	p->cube_map[lenght] = NULL;
+	while (i < lenght)
+	{
+		p->cube_map[i] = malloc(sizeof(char) * (big + 1));
+		p->cube_map[i][big] = '\0';
+		i++;
+	}
+	i = 0;
+	while (i < lenght)
+	{
+		j = 0;
+		while (j < big)
+		{
+			if (j < ft_strlen(p->cube_map1[i]))
+				p->cube_map[i][j] = p->cube_map1[i][j];
+			else
+				p->cube_map[i][j] = ' ';
+			j++;
+		}
+		i++;
+	}
+	if (p->cube_map[0][big - 1] == ' ')
+		p->cube_map[0][big - 1] = '1';
+	if (p->cube_map[lenght - 1][big - 1] == ' ')
+		p->cube_map[lenght - 1][big - 1] = '1';
+}
+
+void	check_last_line(char *s)
+{
+	int	i;
 
 	i = 0;
 	while (s[i])
 	{
-		j = 0;
-		while (s[i][j])
+		if (s[i] != '1' && s[i] != ' ' && s[i] != '\n' && s[i] != '\0')
 		{
-			if (s[i][j] == '0')
-				check_zero2(s, i, j);
-			else if (s[i][j] == 'N' || s[i][j] == 'E'
-				|| s[i][j] == 'W' || s[i][j] == 'S')
-			{
-				p->direction = s[i][j];
-				p->x = i;
-				p->y = j;
-				check_player(s, i, j);
-			}
-			j++;
+			printf("error in map\n");
+			exit(0);
 		}
 		i++;
 	}
 }
 
-void	flagino(int flag)
+int	check_space_last(char *s)
 {
-	if (flag > 1)
+	int	i;
+
+	i = 0;
+	while (s[i])
 	{
-		printf("Oops more than one player\n");
-		exit (0);
+		if (s[i] != ' ')
+			return (0);
+		i++;
 	}
-	else if (flag == 0)
-	{
-		printf("Oops there is no player\n");
-		exit (0);
-	}
+	return (1);
 }

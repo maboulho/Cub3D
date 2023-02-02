@@ -6,7 +6,7 @@
 #    By: maboulho <maboulho@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/15 05:36:02 by atouati           #+#    #+#              #
-#    Updated: 2023/02/01 19:00:28 by maboulho         ###   ########.fr        #
+#    Updated: 2023/02/02 03:55:32 by maboulho         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = cub3D
 
 CC = cc
 
-C_FLAGS = -Wall -Wextra -Werror
+C_FLAGS = -Wall -Wextra -Werror -fsanitize=address -g
 
 MLX_FLAGS = -lmlx -framework OpenGL -framework AppKit
 
@@ -53,6 +53,7 @@ FUNCTIONS =	main.c\
 			./parsing/parsing_utils4.c\
 			./parsing/parsing_utils5.c\
 			./parsing/parsing_utils6.c\
+			./parsing/check_real_map3.c\
 		
 RM = rm -rf
 

@@ -6,7 +6,7 @@
 /*   By: maboulho <maboulho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 22:55:52 by maboulho          #+#    #+#             */
-/*   Updated: 2023/02/01 01:18:22 by maboulho         ###   ########.fr       */
+/*   Updated: 2023/02/02 01:56:43 by maboulho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,16 @@ void	check_zero2(char **s, int i, int j)
 	if (s[i][j - 1] != '1' && s[i][j - 1] != '0' && s[i][j - 1] != 'S'
 		&& s[i][j - 1] != 'N' && s[i][j - 1] != 'E' && s[i][j - 1] != 'W')
 		error_blank();
-	if (s[i][j + 1] != '1' && s[i][j + 1] != '0' && s[i][j + 1] != 'S'
+	else if (s[i][j + 1] != '1' && s[i][j + 1] != '0' && s[i][j + 1] != 'S'
 		&& s[i][j + 1] != 'N' && s[i][j + 1] != 'E' && s[i][j + 1] != 'W')
 		error_blank();
-	if (s[i - 1][j] != '1' && s[i - 1][j] != '0' && s[i - 1][j] != 'S'
+	else if (s[i - 1][j] != '1' && s[i - 1][j] != '0' && s[i - 1][j] != 'S'
 		&& s[i - 1][j] != 'N' && s[i - 1][j] != 'E' && s[i - 1][j] != 'W')
 		error_blank();
-	if (s[i + 1][j] != '1' && s[i + 1][j] != '0' && s[i + 1][j] != 'S'
+	else if (s[i + 1][j] != '1' && s[i + 1][j] != '0' && s[i + 1][j] != 'S'
 		&& s[i + 1][j] != 'N' && s[i + 1][j] != 'E' && s[i + 1][j] != 'W')
 		error_blank();
+	return ;
 }
 
 int	check_chars(char *s)

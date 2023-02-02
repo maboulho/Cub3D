@@ -6,7 +6,7 @@
 /*   By: maboulho <maboulho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 02:56:54 by maboulho          #+#    #+#             */
-/*   Updated: 2023/02/01 20:27:37 by maboulho         ###   ########.fr       */
+/*   Updated: 2023/02/02 03:52:21 by maboulho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,3 +65,17 @@ void	open_xpm(char *s)
 	else
 		return ;
 }	
+
+void	flagino(int flag)
+{
+	if (flag > 1)
+	{
+		printf("Oops more than one player\n");
+		exit (0);
+	}
+	else if (flag == 0)
+	{
+		printf("Oops there is no player\n");
+		exit (0);
+	}
+}
